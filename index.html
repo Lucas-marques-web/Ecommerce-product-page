@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <title>Frontend Mentor | E-commerce product page</title>
+
+</head>
+
+<body>
+
+  
+  <nav class="navbar nav-underline navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="toggle-div">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 class="navbar-brand thicker700">sneakers</h1>
+      </div>
+      <div class="offcanvas offcanvas-start offcanvas-md" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+              <a class="nav-link  thicker700" aria-current="page" href="#">Collections</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  thicker700" href="#">Men</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  thicker700" href="#">Women</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  thicker700" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  thicker700" href="#">Contact</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <div>
+        <img src="images/icon-cart.svg" class="cart-icon height-24">
+        <img src="images/image-avatar.png" class="profile-icon height-24">
+      </div>
+    </div>
+  </nav>
+
+  <div id="cart-items" class="cart-items hidden">
+
+    <h4> Cart</h4>
+    <hr>
+    <!-- Create a div to display cart items -->
+    <div id="cart-item-list"></div>
+    <button class="btn btn-primary cart-btn">Go somewhere</button>
+  </div>
+  </div>
+
+  <div class="shadow hidden"></div>
+
+  <div class="container-fluid lightbox text-center hidden">
+    <div class="row">
+      <div class="col">
+        <img src="images/icon-close.svg" class=" close-btn-lightbox">
+        <img src="images/icon-previous.svg" class="movement-icons-2 previous-2" alt="">
+        <img src="images/image-product-1.jpg" class="image-product-main-2" alt="">
+        <img src="images/icon-next.svg" class="movement-icons-2 next-2" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="thumbnails-div-2">
+        <img src="images/image-product-1-thumbnail.jpg" class="thumbnails-2 blur" alt="">
+        <img src="images/image-product-2-thumbnail.jpg" class="thumbnails-2" alt="">
+        <img src="images/image-product-3-thumbnail.jpg" class="thumbnails-2" alt="">
+        <img src="images/image-product-4-thumbnail.jpg" class="thumbnails-2" alt="">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="container-fluid text-center">
+            <div class="row">
+              <div class="col">
+                <img src="images/icon-previous.svg" class="movement-icons previous" alt="">
+                <img src="images/image-product-1.jpg" class="image-product-main" alt="">
+                <img src="images/icon-next.svg" class="movement-icons next" alt="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="thumbnails-div">
+                <img src="images/image-product-1-thumbnail.jpg" class="thumbnails blur" alt="">
+                <img src="images/image-product-2-thumbnail.jpg" class="thumbnails" alt="">
+                <img src="images/image-product-3-thumbnail.jpg" class="thumbnails" alt="">
+                <img src="images/image-product-4-thumbnail.jpg" class="thumbnails" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="main-content">
+            <p class="company thicker700">SNEAKER COMPANY</p>
+
+            <h1 class="title thicker700">Fall Limited Edition Sneakers</h1>
+
+            <p class="main-text thicker400">These low-profile sneakers are your perfect
+              casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything
+              the weather can offer.</p>
+
+            <div class="price-table">
+              <h2 class="price thicker700">$125.00</h2>
+              <p class="discount thicker700">50%</p>
+              <p class="no-discount-price thicker700">$250.00</p>
+            </div>
+
+            <div class="grip">
+              <div class="operations-Cart">
+                <img src="images/icon-minus.svg" class="minus-sign">
+                <p class="empty-value thicker700">0</p>
+                <img src="images/icon-plus.svg" class="plus-sign">
+              </div>
+              <button type="button" class="btn btn-lg add-cart-btn thicker700">
+                <img src="images/icon-cart.svg" class="icon-cart"> Add to cart</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Lucas Marques</a>.
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
+
+
