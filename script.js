@@ -176,8 +176,9 @@ function addItemsToCart() {
   // Obtenha o nome ou outra identificação do produto que você deseja adicionar ao carrinho.
   let productName = "Fall Limited Edition Sneakers"; // Você pode obter isso dinamicamente se necessário.
   let qtdProduct = emptyValue;
-  let price = 125;
+  let price = 125.00;
   let imageUrl = 'images/image-product-1-thumbnail.jpg';
+  let deleteIconURL = 'images/icon-delete.svg'
 
   if (qtdProduct !== 0) {
     // Adicione o produto ao carrinho (neste caso, estamos apenas adicionando o nome).
@@ -186,6 +187,7 @@ function addItemsToCart() {
       quantity: qtdProduct,
       price: price,
       imageUrl: imageUrl,
+      deleteIconURL:deleteIconURL
     });
     emptyValue = 0;
     document.querySelector('.empty-value').textContent = 0;
@@ -212,16 +214,27 @@ function updateCartList() {
       const cartItemContainer = document.createElement("div");
       cartItemContainer.classList.add("cart-item-container");
 
+      cartItemContainer.innerHTML= `
+      <img src="${item.imageUrl}" class="img-cart-list" alt="${item.name}">
+      <p class='items-cart-content'>${item.name}<br>
+      $${item.price.toFixed(2)} X  ${item.quantity} <strong> $${(item.quantity*item.price).toFixed(2)}<strong>
+      </p>
+      <img src='${item.deleteIconURL}'class='delete-icon' alt='delete-icon'> 
+      
+      
+      `;
+      // cartItemContainer.innerHTML= `<p>${item.name}</p>`;
+
       // Create an image element for the product image.
-      const img = document.createElement("img");
-      img.src = item.imageUrl; // Set the image source to the product's image URL.
-      img.alt = item.name; // Set the alt text to the product's name.
-      cartItemContainer.appendChild(img);
+      // const img = document.createElement("img");
+      // img.src = item.imageUrl; // Set the image source to the product's image URL.
+      // img.alt = item.name; // Set the alt text to the product's name.
+      // cartItemContainer.appendChild(img);
 
       // Create a paragraph element for displaying item details.
-      const itemDetails = document.createElement("p");
-      itemDetails.textContent = `${item.name}, ${item.quantity} X ${item.price}`;
-      cartItemContainer.appendChild(itemDetails);
+      
+      // cartItemContainer.textContent =`${item.quantity} X ${item.price} `;
+      // cartItemContainer.appendChild(itemDetails);
 
       // Append the container to the cart item list.
       cartItemList.appendChild(cartItemContainer);
