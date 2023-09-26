@@ -32,7 +32,10 @@ body{
   margin: 0vh 10vw;
 }
 .cart-title{
-  margin: 2% 0 0 2%;
+  margin: 2% 0 0 5%;
+  color: black;
+  font-weight: 400;
+  font-size: 24px;
 }
 .cart-items{
   position: absolute;
@@ -41,9 +44,7 @@ body{
   right: 150px;
   min-height: 300px;
   width: 25rem;
-  /* padding: .5%; */
-  /* text-align: center; */
-  /* border: 1px solid red; */
+  color:hsl(219, 9%, 45%);
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .delete-icon{
@@ -220,9 +221,24 @@ padding: 12.5px 20px;
   display: inline-block;
   vertical-align: bottom;
 }
+.cart-btn{
+  background-color: hsl(26, 100%, 55%);
+  width: 90%;
+  height: 50px ;
+  margin: 5%;
+  color: white;
+}
+.cart-btn:hover{
+  background-color: hsl(26, 100%, 55%);
+  color: white;
+}
+.add-cart-btn:hover{
+  background-color: hsl(26, 100%, 55%);
+  color: white;
+}
 .img-cart-list{
   height: 3.5rem;
-  margin-left: 2%;
+  margin-left: 5%;
   margin-right: 2%;
   border-radius: 4px;
 }
@@ -231,7 +247,12 @@ padding: 12.5px 20px;
   vertical-align: middle;
   
 }
-
+path{
+  fill: blue;
+}
+.close-btn-lightbox:hover svg path {
+  fill: orangered;
+}
 /* .offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl {
   --bs-offcanvas-width: 300px;
 } */
@@ -316,7 +337,8 @@ padding: 12.5px 20px;
       width:100%;
     }
     .image-product-main{
-      width: 100vw;
+      /* position: relative; */
+      min-width: 100%;
       height: 40vh;
       /* margin: 2.5vw; */
       border-radius: 0;
@@ -325,6 +347,7 @@ padding: 12.5px 20px;
     .image-product-main-2{
       /* visibility: hidden; */
       display: none;
+      width: 0;
     }
     .cart-items{
       /* text-align: center; */
@@ -342,6 +365,7 @@ padding: 12.5px 20px;
     .lightbox{
       position: absolute;
       display: none;
+      width: 0;
       /* visibility: hidden; */
     }
     .shadow{
@@ -385,6 +409,7 @@ padding: 12.5px 20px;
     }
     .thumbnails{
      display: none;
+
     }
     .movement-icons{
       visibility: visible;
@@ -401,4 +426,28 @@ padding: 12.5px 20px;
       right: 4%;
       top: 23%;
     }
+    .thumbnails2{
+      display: none;
+      width: 0;
+     }
+     .movement-icons2{
+       display: none;
+       border-radius: 100%;
+       padding: 15px;
+       background-color: white;
+       position: absolute;
+       width: 0;
+     }
+     .previous-2{
+       top: 23%;
+       left: 4%;
+       display: none;
+       width: 0;
+     }
+     .next-2{
+       right: 4%;
+       top: 23%;
+       display: none;
+       width: 0;
+     }
 }

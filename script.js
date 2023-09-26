@@ -5,7 +5,7 @@ document.querySelector('.minus-sign').addEventListener('click', minusItems);
 document.querySelector('.add-cart-btn').addEventListener('click', addItemsToCart);
 let carIcon = document.querySelector('.cart-icon');
 let cartItemsDiv = document.getElementById("cart-items");
-carIcon.addEventListener('click', updateCartList);
+// carIcon.addEventListener('click', updateCartList);
 carIcon.addEventListener('click', ShowCartlist);
 
 let imageProductMain = document.querySelector('.image-product-main');
@@ -19,6 +19,8 @@ let previous = document.querySelector('.previous');
 let next = document.querySelector('.next');
 let previousLightbox = document.querySelector('.previous-2');
 let nextLightbox = document.querySelector('.next-2');
+let cartListBtn = document.querySelector('cart-btn');
+
 
 let currentImageIndex = 0; // Variável para rastrear o índice da imagem principal atual
 
@@ -28,7 +30,6 @@ const mainImages = [
   "images/image-product-3.jpg",
   "images/image-product-4.jpg"
 ];
-
 
 next.addEventListener('click', () => {
   currentImageIndex++;
@@ -53,7 +54,6 @@ previous.addEventListener('click', () => {
   // Atualize a imagem principal com a imagem anterior no array
   imageProductMain.src = mainImages[currentImageIndex];
 });
-
 
 
 
@@ -105,6 +105,7 @@ closeButtonLightbox.addEventListener('click', () => {
   shadowDiv.classList.toggle('hidden');
   lightBox.classList.toggle('hidden');
 });
+
 
 imageProductMain.addEventListener('click', () => {
   shadowDiv.classList.toggle('hidden');
@@ -187,11 +188,12 @@ function addItemsToCart() {
       quantity: qtdProduct,
       price: price,
       imageUrl: imageUrl,
-      deleteIconURL:deleteIconURL
+      deleteIconURL: deleteIconURL
     });
     emptyValue = 0;
     document.querySelector('.empty-value').textContent = 0;
 
+    
     // Atualize a lista de itens no carrinho.
     updateCartList();
   }
@@ -206,42 +208,56 @@ function updateCartList() {
   if (cartItems.length === 0) {
     // If the cart is empty, display a message.
     cartItemList.innerHTML = "<p class='empty-cart'>Your cart is empty</p>";
-    document.querySelector('.cart-btn').classList.toggle('hidden');
+    document.querySelector('.cart-btn').classList.add('hidden');
   } else {
+    document.querySelector('.cart-btn').classList.remove('hidden');
     // Otherwise, create a list of items in the cart.
     cartItems.forEach((item) => {
       // Create a container for each item in the cart.
       const cartItemContainer = document.createElement("div");
       cartItemContainer.classList.add("cart-item-container");
 
-      cartItemContainer.innerHTML= `
+      cartItemContainer.innerHTML = `
       <img src="${item.imageUrl}" class="img-cart-list" alt="${item.name}">
       <p class='items-cart-content'>${item.name}<br>
-      $${item.price.toFixed(2)} X  ${item.quantity} <strong> $${(item.quantity*item.price).toFixed(2)}<strong>
+      $${item.price.toFixed(2)} X  ${item.quantity} <strong> $${(item.quantity * item.price).toFixed(2)}<strong>
       </p>
       <img src='${item.deleteIconURL}'class='delete-icon' alt='delete-icon'> 
       
       
       `;
-      // cartItemContainer.innerHTML= `<p>${item.name}</p>`;
-
-      // Create an image element for the product image.
-      // const img = document.createElement("img");
-      // img.src = item.imageUrl; // Set the image source to the product's image URL.
-      // img.alt = item.name; // Set the alt text to the product's name.
-      // cartItemContainer.appendChild(img);
-
-      // Create a paragraph element for displaying item details.
-      
-      // cartItemContainer.textContent =`${item.quantity} X ${item.price} `;
-      // cartItemContainer.appendChild(itemDetails);
-
       // Append the container to the cart item list.
       cartItemList.appendChild(cartItemContainer);
+
+      // Assuming you have multiple delete icons with the class 'delete-icon'
+      let deleteIcons = document.querySelectorAll('.delete-icon');
+
+      // Loop through each delete icon and attach a click event listener
+      deleteIcons.forEach((deleteIcon) => {
+        deleteIcon.addEventListener('click', (event) => {
+          console.log(event);
+          // Get the parent element of the clicked delete icon (the container div)
+          let parentDeleteIcon = deleteIcon.closest('.cart-item-container');
+
+          if (parentDeleteIcon) {
+            // Hide the parent element by setting its display property to 'none'
+            parentDeleteIcon.style.display = 'none';
+
+            // Remove the item from the cartItems array
+            const itemIndex = Array.from(parentDeleteIcon.parentElement.children).indexOf(parentDeleteIcon);
+            if (itemIndex !== -1) {
+              cartItems.splice(itemIndex, 1);
+            }
+          }
+        });
+     
+      });
+      
     });
   }
 }
 
 function ShowCartlist() {
   cartItemsDiv.classList.toggle('hidden');
+  updateCartList()
 }
