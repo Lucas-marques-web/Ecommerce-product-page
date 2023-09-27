@@ -96,21 +96,18 @@ body{
   border-radius: 100%;
   padding: 25px;
   background-color: white;
-  position: absolute;
+  position: relative;
   z-index: 999;
 
 }
-.movement-icons-2:hover{
-  fill: orangered;
-}
-.previous-2{
+/* .previous-2{
   top: 28%;
   left: 31.8%;
 }
 .next-2{
   top: 28%;
   right: 31.8%;
-}
+} */
 .close-btn-lightbox{
   position: absolute;
   height: 26px;
@@ -236,6 +233,13 @@ padding: 12.5px 20px;
   background-color: hsl(26, 100%, 55%);
   color: white;
 }
+.cart-notification{
+  background-color: hsl(26, 100%, 55%);
+  border-radius: 100%;
+  font-size: 15px;
+  padding: 4px 8px;
+  
+}
 .img-cart-list{
   height: 3.5rem;
   margin-left: 5%;
@@ -253,13 +257,14 @@ path{
 .close-btn-lightbox:hover svg path {
   fill: orangered;
 }
-/* .offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl {
-  --bs-offcanvas-width: 300px;
-} */
+.offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl {
+  --bs-offcanvas-width: 50%;
+}
 .nav-underline{
   border-bottom: var(--bs-nav-underline-border-width) solid hsl(220, 14%, 75%);
   --bs-nav-underline-link-active-color: orange;
 }
+
 .navbar-nav{
   --bs-nav-link-padding-y: 3rem;
   --bs-nav-link-hover-color:orange
@@ -279,18 +284,10 @@ path{
   background-color: hsla(0, 0%, 0%, 0.87);
   /* z-index: ; */
 }
-
 /* ///////////////////////////////////////////////////////////////////////////////////////*/
 
 @media screen and (max-width: 1500px) {
   .operations-Cart{
-    /* border-radius: 4px;
-    background-color: hsl(223, 64%, 98%);
-    height: 50px;
-    width: 30%;
-    min-width:180px;
-    display: inline-block;
-    vertical-align: bottom; */
     margin-left: 10px;
     margin-bottom: 10px;
   }
@@ -302,12 +299,16 @@ path{
 @media screen and (max-width: 800px) {
   .col{
       padding: 0;
+      flex: none;
       /* height: fit-content; */
   }
   .wrapper{
       width: 100vw;
       /* height: 100vh; */
       margin: 0;
+    }
+    .icons-div{
+      margin-right: 10px;
     }
     .height-24{
       height: 24px;
@@ -402,10 +403,12 @@ path{
     .no-discount-price{
       display: inline-block;
     }
-    .nav-underline{
-      border-bottom: var(--bs-nav-underline-border-width) solid transparent;
-      --bs-nav-link-padding-y: 0rem;
-      --bs-nav-link-padding-x: 0rem;
+    .nav-underline .nav-link {
+      border-bottom: none;
+    }
+    .nav-link{      
+      padding: 10px;
+      color: black;
     }
     .thumbnails{
      display: none;

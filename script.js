@@ -3,10 +3,10 @@ let emptyValue = Number(document.querySelector('.empty-value').textContent);
 document.querySelector('.plus-sign').addEventListener('click', addItems);
 document.querySelector('.minus-sign').addEventListener('click', minusItems);
 document.querySelector('.add-cart-btn').addEventListener('click', addItemsToCart);
-let carIcon = document.querySelector('.cart-icon');
+let cartIcon = document.querySelector('.cart-icon');
 let cartItemsDiv = document.getElementById("cart-items");
 // carIcon.addEventListener('click', updateCartList);
-carIcon.addEventListener('click', ShowCartlist);
+cartIcon.addEventListener('click', ShowCartlist);
 
 let imageProductMain = document.querySelector('.image-product-main');
 let thumbnails = document.querySelectorAll('.thumbnails');
@@ -19,9 +19,9 @@ let previous = document.querySelector('.previous');
 let next = document.querySelector('.next');
 let previousLightbox = document.querySelector('.previous-2');
 let nextLightbox = document.querySelector('.next-2');
-let cartListBtn = document.querySelector('cart-btn');
-
-
+// let cartListBtn = document.querySelector('cart-btn');
+const cartNotification = document.querySelector('.cart-notification');
+let checkoutBtn = document.querySelector('.checkout-btn')
 let currentImageIndex = 0; // Variável para rastrear o índice da imagem principal atual
 
 const mainImages = [
@@ -55,7 +55,9 @@ previous.addEventListener('click', () => {
   imageProductMain.src = mainImages[currentImageIndex];
 });
 
-
+checkoutBtn.addEventListener('click',()=>{
+  alert('The operation was sucessfully')
+})
 
 
 nextLightbox.addEventListener('click', () => {
@@ -193,9 +195,18 @@ function addItemsToCart() {
     emptyValue = 0;
     document.querySelector('.empty-value').textContent = 0;
 
+
+
+
+    // Update the cart icon and notification count
+    // const cartIcon = document.querySelector('.cart-icon');
+
     
-    // Atualize a lista de itens no carrinho.
-    updateCartList();
+    cartNotification.classList.remove('hidden');
+    cartNotification.textContent = cartItems.length;
+
+        // Atualize a lista de itens no carrinho.
+        updateCartList();
   }
 }
 
@@ -209,6 +220,8 @@ function updateCartList() {
     // If the cart is empty, display a message.
     cartItemList.innerHTML = "<p class='empty-cart'>Your cart is empty</p>";
     document.querySelector('.cart-btn').classList.add('hidden');
+    cartNotification.textContent = 0;
+    cartNotification.classList.add('hidden');
   } else {
     document.querySelector('.cart-btn').classList.remove('hidden');
     // Otherwise, create a list of items in the cart.

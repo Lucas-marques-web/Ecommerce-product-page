@@ -16,7 +16,7 @@
 <body>
 
   
-  <nav class="navbar nav-underline navbar-expand-lg">
+  <nav class="navbar nav-underline navbar-expand-md">
     <div class="container-fluid">
       <div class="toggle-div">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -51,8 +51,11 @@
           </ul>
         </div>
       </div>
-      <div>
-        <img src="images/icon-cart.svg" class="cart-icon height-24">
+      <div class="icons-div">
+        <span class="cart-icon">
+          <img src="images/icon-cart.svg" class="cart-icon height-24">
+        </span>
+        <span class="cart-notification hidden">0</span>
         <img src="images/image-avatar.png" class="profile-icon height-24">
       </div>
     </div>
@@ -64,7 +67,7 @@
     <hr>
     <!-- Create a div to display cart items -->
     <div id="cart-item-list"></div>
-    <button class="btn cart-btn ">Checkout</button>
+    <button class="btn cart-btn checkout-btn">Checkout</button>
   </div>
   </div>
 
